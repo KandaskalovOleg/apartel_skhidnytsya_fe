@@ -36,6 +36,7 @@ const questions = [
   },
   {
     "question": "Як ви ставитесь до роботи в різних приміщеннях?",
+    "video": "https://www.youtube.com/embed/Y6FAKq1KiqM?si=SWtYTTIKVFrudMy1",
     "options": [
       "Готовий/готова працювати в будь-якому приміщенні.",
       "Бажаю працювати тільки в офісах або готелях.",
@@ -133,6 +134,16 @@ const Maid: React.FC = () => {
       {questions.map((q, questionIndex) => (
         <Paper key={questionIndex} elevation={3} style={{ padding: '20px', marginBottom: '20px' }}>
           <Typography variant="h6">{q.question}</Typography>
+          {q.video && (
+            <div>
+              <iframe
+                src={q.video}
+                title={`Video for question ${questionIndex}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
           <FormControl component="fieldset">
             <RadioGroup
               aria-label={`question_${questionIndex}`}
